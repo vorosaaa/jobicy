@@ -1,9 +1,7 @@
+import axios from "axios";
+
 const axiosClient = axios.create({
   baseURL: "https://jobicy.com/api/v2",
-  headers: {
-    "Content-Type": "application/json",
-    Accept: "application/json, text/plain, */*",
-  },
   timeout: 10000,
 });
 

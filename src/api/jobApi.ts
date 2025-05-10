@@ -1,7 +1,7 @@
 import { Job } from "@/types/job";
-import axiosClient from "./axiosClient";
+import axios from "axios";
 
 export const fetchJobs = async (): Promise<Job[]> => {
-  const response = await axiosClient.get("remote-jobs");
+  const response = await axios.get("https://jobicy.com/api/v2/remote-jobs");
   return response.data.jobs;
 };
