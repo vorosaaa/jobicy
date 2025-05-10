@@ -17,6 +17,7 @@ import { Job } from "@/types/job";
 export default function HomePage() {
   const { data: jobs = [], isLoading, isSuccess } = useJobs();
 
+  // Just checked the API that it can filter by location and industry, maybe I'll implement it tomorrow
   const [locationFilter, setLocationFilter] = useState("");
   const [selectedIndustry, setSelectedIndustry] = useState("");
   const [filteredJobs, setFilteredJobs] = useState<Job[]>([]);
