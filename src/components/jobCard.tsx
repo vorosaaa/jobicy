@@ -18,24 +18,22 @@ export const JobCard = ({ job }: Props) => {
       <Card sx={{ height: "100%" }}>
         <CardMedia
           component="img"
-          height="140"
+          height="200"
           image={job.companyLogo}
           alt={`${job.jobTitle} logo`}
         />
         <CardContent>
           <Typography variant="h6">{job.jobTitle}</Typography>
           <Typography variant="body2">
-            {job.jobType} | {job.jobLevel}
+            {job.jobType.length > 0
+              ? job.jobType.join(", ")
+              : "No job type available"}{" "}
+            | {job.jobLevel}
           </Typography>
           <Typography variant="body2" sx={{ mt: 1 }}>
-            {job.jobDescription.slice(0, 100)}...
+            {job.jobExcerpt.slice(0, 200)}...
           </Typography>
-          <Button
-            href={job.jobUrl}
-            target="_blank"
-            rel="noopener"
-            sx={{ mt: 2 }}
-          >
+          <Button href={job.url} target="_blank" rel="noopener" sx={{ mt: 2 }}>
             View Job
           </Button>
         </CardContent>
