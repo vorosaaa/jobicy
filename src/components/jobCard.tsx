@@ -7,6 +7,7 @@ import {
   Grid,
   Typography,
 } from "@mui/material";
+import he from "he";
 
 type Props = {
   job: Job;
@@ -28,7 +29,10 @@ export const JobCard = ({ job }: Props) => {
             {job.jobType.length > 0
               ? job.jobType.join(", ")
               : "No job type available"}{" "}
-            | {job.jobLevel}
+            | {job.jobGeo}
+          </Typography>
+          <Typography variant="body2">
+            {job.jobIndustry.map((ind) => he.decode(ind)).join(", ")}
           </Typography>
           <Typography variant="body2" sx={{ mt: 1 }}>
             {job.jobExcerpt.slice(0, 200)}...
